@@ -74,4 +74,5 @@
 	$ ./aws-mfa -s MFA前のプロファイル -d MFA後のプロファイル
 
 	$ AWS_DEFAULT_PROFILE=MFA後のプロファイル aws s3 ls
-	などを実行して Access Denied がでなければ成功です。
+
+などを実行して Access Denied がでなければ成功です。
