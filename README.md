@@ -31,3 +31,9 @@ config.tf
 
 [AWS-SignIn.md](./AWS-SignIn.md)などの情報を提示してください。
 
+# MFAデバイス登録失敗時
+
+MFAデバイス登録失敗時に再登録できない場合があります。その最は以下のようなコマンドでMFAを削除できます。
+
+	$ aws iam list-virtual-mfa-devices
+	$ aws iam delete-virtual-mfa-device --serial-number arn:aws:iam::123456789012:mfa/ユーザ名
