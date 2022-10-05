@@ -68,11 +68,11 @@
 	$ docker cp awsmfa:/app/aws-mfa .
 	$ docker rm -f awsmfa
 
-`-e GOOS=darwin -e GOARCH=amd64` の部分を `-e GOOS=windoiws -e GOARCH=amd64` や `-e GOOS=linux -e GOARCH=arm64` などにするとそれぞれのOSやアーキテクチャに向けたバイナリをビルドできます。OSとアーキテクチャのリストはこのコマンドで参照できます(「OS/アーキテクチャ]の形になっています)
+`-e GOOS=darwin -e GOARCH=amd64` の部分を `-e GOOS=windoiws -e GOARCH=amd64` や `-e GOOS=linux -e GOARCH=arm64` などにするとそれぞれのOS(GOOS)やアーキテクチャ(GOARCH_に向けたバイナリをビルドできます。OSとアーキテクチャのリストはこのコマンドで参照できます(「GOOS/GOARCH]の形になっています)。 -jsonを付けるとJSONで出力されます。
 
 	$ docker run --rm golang:1.19.1-alpine3.16 go tool dist list
 
-カレントフォルダに aws-mfa というバイナリができますので、それをパスの通った任意の場所にコピーしてください。
+ビルドが完了するとカレントフォルダに aws-mfa というバイナリができますので、それをパスの通った任意の場所にコピーしてください。
 
 docker run --rm golang:1.19.1-alpine3.16 go tool dist list
 
@@ -80,7 +80,7 @@ docker run --rm golang:1.19.1-alpine3.16 go tool dist list
 
 「MFA後のプロファイル」には「MFA前のプロファイル_mfa」など、_mfaをつけたものにするとわかりやすいです。
 
-	$ ./aws-mfa -s MFA前のプロファイル -d MFA後のプロファイル
+	$ aws-mfa -s MFA前のプロファイル -d MFA後のプロファイル
 
 これで
 
