@@ -68,7 +68,7 @@
 	$ docker cp awsmfa:/app/aws-mfa .
 	$ docker rm -f awsmfa
 
-`-e GOOS=darwin -e GOARCH=amd64` の部分を `-e GOOS=windoiws -e GOARCH=amd64` や `-e GOOS=linux -e GOARCH=arm64` などにするとそれぞれのOS(GOOS)やアーキテクチャ(GOARCH_に向けたバイナリをビルドできます。OSとアーキテクチャのリストはこのコマンドで参照できます(「GOOS/GOARCH]の形になっています)。 -jsonを付けるとJSONで出力されます。
+`-e GOOS=darwin -e GOARCH=amd64` の部分を `-e GOOS=windoiws -e GOARCH=amd64` や `-e GOOS=linux -e GOARCH=arm64` などにするとそれぞれのOS(GOOS)やアーキテクチャ(GOARCH)に向けたバイナリをビルドできます。OSとアーキテクチャのリストはこのコマンドで参照できます(「GOOS/GOARCH]の形になっています)。 -jsonを付けるとJSONで出力されます。
 
 	$ docker run --rm golang:1.19.1-alpine3.16 go tool dist list
 
