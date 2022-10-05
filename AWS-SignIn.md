@@ -55,7 +55,9 @@
 
 アクセスキーを使用した場合でも、MFAの認証が必要になります。 現在のアクセスキーを利用してMFA認証を行い、それが有効なセッションのアクセスキーを発行されるので、それを利用するという仕組みになります。 手作業で行うととても煩雑ですが、 [go-aws-mfa](https://github.com/jdevelop/go-aws-mfa)などのツールを使うことで比較的簡単に利用できるようになります。
 
-導入例(GolangコンテナをつかってIntel mac向けにビルド)
+### バイナリのビルド
+
+以下はDockerを使ったIntel man向けビルド例です。Golangの導入は不要ですが、Dockerの導入が必要です。
 
 	$ git clone https://github.com/jdevelop/go-aws-mfa.git
 	$ cd go-aws-mfa
@@ -66,7 +68,13 @@
 	$ docker cp awsmfa:/app/aws-mfa .
 	$ docker rm -f awsmfa
 
+`-e GOOS=darwin -e GOARCH=amd64` の部分を `-e GOOS=windoiws -e GOARCH=amd64` や `-e GOOS=linux -e GOARCH=arm64` などにするとそれぞれのOSやアーキテクチャに向けたバイナリをビルドできます。OSとアーキテクチャのリストはこのコマンドで参照できます(「OS/アーキテクチャ]の形になっています)
+
+	$ docker run --rm golang:1.19.1-alpine3.16 go tool dist list
+
 カレントフォルダに aws-mfa というバイナリができますので、それをパスの通った任意の場所にコピーしてください。
+
+docker run --rm golang:1.19.1-alpine3.16 go tool dist list
 
 ### 利用例 
 
